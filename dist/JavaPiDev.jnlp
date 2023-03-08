@@ -7,8 +7,8 @@
     <offline-allowed/>
   </information>
   <resources>
-    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaPiDev.jar" size="2592" download="eager" />
+    <j2se version="1.6+" java-vm-args="--module-path /path/to/JavaFX/lib --add-modules=javafx.controls,javafx.fxml "  href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="JavaPiDev.jar" size="153073" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="javapidev.JavaPiDev"  name="JavaPiDev" />
   <update check="always"/>
