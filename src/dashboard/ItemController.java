@@ -23,6 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import modeles.Enseignant;
 import modeles.Etudiant;
+import modeles.Livraison;
 import modeles.Recruteur;
 import modeles.Role;
 import static modeles.Role.Recruteur;
@@ -70,6 +71,8 @@ public class ItemController implements Initializable {
     @FXML
     private Label LabelScore;
 
+    
+    public Livraison livraison;
 //    public ItemController(String haja) {
 //        this.test = haja;
 //    }
@@ -82,51 +85,14 @@ public class ItemController implements Initializable {
 //        Username.setText("ahmeddd");
 //        nom.setText(U.getNom());
 
-        nom.setText(U.getNom());
-        prenom.setText(U.getPrenom());
-        phone.setText(String.valueOf(U.getPhone()));
-        role.setText(U.getRole().toString());
-        mail.setText(U.getEmail());
-        cartbanq.setText(U.getCarte_banq());
-
-        if (U.getRole() == Role.etudiant) {
-            Etudiant e = (Etudiant) U;
-            section.setText(e.getSection());
-            score.setText(String.valueOf(e.getScore()));
-            File file = new File("src/dashboard/images/student.jpg");
-            Img.setImage(new Image(file.toURI().toString()));
-
-        }
-        if (U.getRole() == Role.Recruteur) {
-            Recruteur r = (Recruteur) U;
-            File file = new File("src/dashboard/images/recruitment.png");
-            Img.setImage(new Image(file.toURI().toString()));
-            LabelSection.setText("Societe");
-            section.setText(r.getsociete());
-            LabelScore.setVisible(false);
-            score.setVisible(false);
-
-        }
-        if (U.getRole() == Role.enseignant) {
-            Enseignant e = (Enseignant) U;
-            File file = new File("src/dashboard/images/teacher.png");
-            Img.setImage(new Image(file.toURI().toString()));
-//            LabelSection.setText("Universite");
-            section.setText(e.getSection());
-            LabelScore.setText("Universite");
-            score.setText(e.getUniversite());
-        }
-        if (U.getRole() == Role.admin) {
-            File file = new File("src/dashboard/images/admin.png");
-            Img.setImage(new Image(file.toURI().toString()));
-        }
-        if (U.getRole() == Role.empty) {
-            LabelScore.setVisible(false);
-            LabelSection.setVisible(false);
-
-            section.setText("");
-            score.setText("");
-        }
+//        nom.setText(U.getNom());
+        nom.setText(String.valueOf(livraison.getId()));
+//
+//        prenom.setText(U.getPrenom());
+//        phone.setText(String.valueOf(U.getPhone()));
+////        role.setText(U.getRole().toString());
+//        mail.setText(U.getEmail());
+//        cartbanq.setText(U.getCarte_banq());
 
     }
 

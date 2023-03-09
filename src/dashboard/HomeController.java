@@ -36,11 +36,13 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import modeles.Enseignant;
 import modeles.Etudiant;
+import modeles.Livraison;
 import modeles.Recruteur;
 //import static modeles.Role.Recruteur;
 import modeles.User;
 import services.ServiceEns;
 import services.ServiceEtudiant;
+import services.ServiceLivraison;
 import services.ServiceRecruteur;
 import services.ServiceUser;
 
@@ -54,6 +56,7 @@ public class HomeController implements Initializable {
     ServiceEtudiant sE = new ServiceEtudiant();
     ServiceEns sEn = new ServiceEns();
     ServiceRecruteur sR = new ServiceRecruteur();
+    ServiceLivraison sL = new ServiceLivraison();
 
     @FXML
     private VBox pnl_scroll;
@@ -114,15 +117,18 @@ public class HomeController implements Initializable {
 //        boxifyVBoxes();
         pnl_scroll.getChildren().clear();
 
-        List<Etudiant> listU = sE.getAll();
-        Node[] nodes = new Node[listU.size()];
+//        List<Etudiant> listU = sE.getAll();
+        
+        
+        List<Livraison> listL = sL.getAll();
+        Node[] nodes = new Node[listL.size()];
         int i = 0;
 
-        for (Etudiant each : listU) {
+        for (Livraison each : listL) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Item.fxml"));
             ItemController cont = new ItemController();
             try {
-                cont.U = each;
+                cont.livraison = each;
                 loader.setController(cont);
 
                 nodes[i] = (Node) loader.load();
