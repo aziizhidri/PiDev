@@ -22,27 +22,22 @@ import utils.DataSource;
 public class ServiceLivraison {
     Connection cnx = DataSource.getInstance().getCnx();
 
-    
     public void add(Livraison livraison) {
 
         try {
-//            String req0 = "INSERT INTO `livraison`(`nom`, `prenom`, `tel`, `email`, `pwd`, `carte_banq`) VALUES (?,?,?,?,?,?)";
+            // String req0 = "INSERT INTO `livraison`(`nom`, `prenom`, `tel`, `email`,
+            // `pwd`, `carte_banq`) VALUES (?,?,?,?,?,?)";
 
-            String req = " INSERT INTO `livraison`(`id`,`id_livraison`,`prixTotal`,`status`,`destination`,`methodePaiment`,`date`) VALUES(?,?,?,?,?,?,?)";
-
+            String req = " INSERT INTO `livraison`(`id_user`,`prixTotal`,`status`,`destination`,`methodePaiment`,`date`) VALUES(?,?,?,?,?,?)";
 
             PreparedStatement ps = cnx.prepareStatement(req);
             // ps.setString(1, livraison.getDestination());
-        
-            ps.setInt(1,livraison.id);
-            ps.setInt( 2,livraison.id_user);
-            ps.setInt(3, (int) livraison.prixTotal);
-            ps.setBoolean( 4,livraison.status);
-            ps.setString( 5,livraison.destination);
-            ps.setString( 6,livraison.methodePaiment);
-            ps.setString( 7,livraison.date);
-
-         
+            ps.setInt(1, livraison.id_user);
+            ps.setInt(2, (int) livraison.prixTotal);
+            ps.setBoolean(3, livraison.status);
+            ps.setString(4, livraison.destination);
+            ps.setString(5, livraison.methodePaiment);
+            ps.setString(6, livraison.date);
 
             ps.executeUpdate();
             System.out.println("livraison Ajoutée");
@@ -51,15 +46,13 @@ public class ServiceLivraison {
             System.err.println(ex.getMessage());
         }
 
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    
     public Object getById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    
     public List getAll() {
         List<Livraison> list = new ArrayList<>();
         try {
@@ -68,15 +61,14 @@ public class ServiceLivraison {
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
                 Livraison u = new Livraison(
-                    
-                rs.getInt(1),
-                rs.getInt(2),
-                rs.getInt(3),
-                rs.getBoolean(4),
-                rs.getString(5),
-                rs.getString(6),
-                rs.getString(7)
-                );
+
+                        rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getBoolean(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7));
                 list.add(u);
             }
         } catch (SQLException ex) {
@@ -85,14 +77,41 @@ public class ServiceLivraison {
         return list;
     }
 
-    
-    public boolean update(Object u) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean update(Livraison livraison) {
+        System.out.println(livraison);
+        String req = "update livraison set date = ? ,id_user = ? , prixTotal = ? , status = ? , destination = ? , methodePaiment = ? , where id = ? ";
+        try {
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.setString(1, livraison.date);
+            ps.setInt(2, livraison.id_user);
+            ps.setInt(3, (int) livraison.prixTotal);
+            ps.setBoolean(4, livraison.status);
+            ps.setString(5, livraison.destination);
+            ps.setString(6, livraison.methodePaiment);
+            ps.setInt(7, livraison.id);
+
+            ps.executeUpdate();
+            System.out.println("liv modifier");
+            ps.close();
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
+
     }
 
-    
-    public boolean delete(Object u) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean delete(Livraison u) {
+        String req = "delete from livraison where id = ?";
+        try {
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.setInt(1, u.getId());
+            ps.executeUpdate();
+            System.out.println("liv supprimer");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
     }
-    
+
 }

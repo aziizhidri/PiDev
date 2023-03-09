@@ -4,15 +4,20 @@
  */
 package dashboard;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import modeles.Livraison;
+import services.ServiceLivraison;
 
 /**
  * FXML Controller class
@@ -49,6 +54,8 @@ public class ItemLivraisonController implements Initializable {
     private Label id;
 
     public Livraison livraison;
+    
+    public ServiceLivraison sL;
 
     /**
      * Initializes the controller class.
@@ -68,11 +75,33 @@ public class ItemLivraisonController implements Initializable {
     }    
 
     @FXML
-    private void UpdateClicked(ActionEvent event) {
+    private void UpdateClicked(ActionEvent event) throws IOException {
+
+        EditItemLivraisonController cont = new EditItemLivraisonController();
+        
+        cont.livraison= this.livraison;
+        cont.update = true;
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EditItemLivraison.fxml"));
+        loader.setController(cont);
+//        mainAnchor = loader.load();
+
+        Stage stage = new Stage();
+        stage.setTitle(" Update Window");
+        stage.setScene(new Scene(loader.load()));
+        stage.show();
+        HomeController Close = new HomeController();
+//                Close.reload(event);
+
+
     }
 
     @FXML
-    private void DeleteClicked(ActionEvent event) {
+    private void DeleteClicked(ActionEvent event) throws IOException {
+        sL.delete(livraison);
+
+        HomeController Close = new HomeController();
+        Close.reload(event);
     }
     
 }

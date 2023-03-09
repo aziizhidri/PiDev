@@ -25,6 +25,15 @@ public class Livraison {
         this.id = id;
     }
 
+    public Livraison(){
+        
+    }
+
+    @Override
+    public String toString() {
+        return "Livraison{" + "id=" + id + ", id_user=" + id_user + ", prixTotal=" + prixTotal + ", status=" + status + ", destination=" + destination + ", methodePaiment=" + methodePaiment + ", date=" + date + '}';
+    }
+    
     public Livraison(int id, int id_user, float prixTotal, boolean status, String destination, String methodePaiment, String date) {
         this.id = id;
         this.id_user = id_user;

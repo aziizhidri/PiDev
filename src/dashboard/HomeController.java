@@ -206,16 +206,16 @@ public class HomeController implements Initializable {
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("EditItem.fxml"));
 //        pnl_scroll.getChildren().add(loader.load());
 
-        EditItemController cont = new EditItemController();
-        cont.type = 1;
+        EditItemLivraisonController cont = new EditItemLivraisonController();
+        cont.livraison = new Livraison();
 //        cont.u = this.U;
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("EditItem.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EditItemLivraison.fxml"));
         loader.setController(cont);
 //        mainAnchor = loader.load();
 
         Stage stage = new Stage();
-        stage.setTitle("My New Stage Title");
+        stage.setTitle("My New Title");
         stage.setScene(new Scene(loader.load()));
         stage.show();
 
