@@ -55,7 +55,7 @@ public class ItemLivraisonController implements Initializable {
 
     public Livraison livraison;
     
-    public ServiceLivraison sL;
+    public ServiceLivraison sL = new ServiceLivraison();
 
     /**
      * Initializes the controller class.

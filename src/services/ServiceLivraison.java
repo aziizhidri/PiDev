@@ -28,7 +28,7 @@ public class ServiceLivraison {
             // String req0 = "INSERT INTO `livraison`(`nom`, `prenom`, `tel`, `email`,
             // `pwd`, `carte_banq`) VALUES (?,?,?,?,?,?)";
 
-            String req = " INSERT INTO `livraison`(`id_user`,`prixTotal`,`status`,`destination`,`methodePaiment`,`date`) VALUES(?,?,?,?,?,?)";
+            String req = " INSERT INTO `livraison`(`id_user`,`prix_total`,`status`,`destination`,`methodePaiment`,`date`) VALUES(?,?,?,?,?,?)";
 
             PreparedStatement ps = cnx.prepareStatement(req);
             // ps.setString(1, livraison.getDestination());
@@ -79,7 +79,7 @@ public class ServiceLivraison {
 
     public boolean update(Livraison livraison) {
         System.out.println(livraison);
-        String req = "update livraison set date = ? ,id_user = ? , prixTotal = ? , status = ? , destination = ? , methodePaiment = ? , where id = ? ";
+        String req = "update livraison set date = `?` ,id_user = `?` , prix_total = `?` , status = `?` , destination = `?` , methodePaiment = `?` , where id = `?` ";
         try {
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, livraison.date);

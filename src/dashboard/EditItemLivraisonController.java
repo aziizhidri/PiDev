@@ -46,7 +46,7 @@ public class EditItemLivraisonController implements Initializable {
     
     public Livraison livraison = new Livraison();
     
-    public ServiceLivraison sL;
+    public ServiceLivraison sL = new ServiceLivraison();
     
     public boolean update = false;
 
@@ -58,6 +58,7 @@ public class EditItemLivraisonController implements Initializable {
         if(update){
             id_userTxt.setText(String.valueOf(livraison.id_user));
             statusttxttx.setText(String.valueOf( livraison.status));
+            prixtxt.setText(String.valueOf(livraison.prixTotal));
             destinationtxt.setText(livraison.destination);
             methodetxt.setText(livraison.methodePaiment);
         }
@@ -77,6 +78,7 @@ public class EditItemLivraisonController implements Initializable {
         livraison.status = Boolean.valueOf( statusttxttx.getText());
         livraison.destination= destinationtxt.getText();
         livraison.methodePaiment = methodetxt.getText();
+        livraison.prixTotal = Integer.valueOf(prixtxt.getText());
         livraison.date = methodetxt.getText();
 //        l. scoreTxtUp.getText();
 
