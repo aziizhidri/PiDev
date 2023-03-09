@@ -47,7 +47,7 @@ public class User {
         random.nextBytes(bytes);
         String token = bytes.toString();
 
-        SendEmail mail = new SendEmail(this, "Password reset", "this is your token \n" + token);
+        SendEmail mail = new SendEmail("sa", "Password reset", "this is your token \n" + token);
         System.out.println("Donner le token");
         Scanner in = new Scanner(System.in);
         String sent = in.nextLine();

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="399.0" prefWidth="949.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane id="AnchorPane" prefHeight="399.0" prefWidth="949.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="29.0" layoutY="22.0" prefHeight="338.0" prefWidth="896.0" style="-fx-background-color: #fff;">
          <children>
@@ -58,11 +58,6 @@
                </children>
             </Pane>
             <Separator layoutX="708.0" layoutY="19.0" orientation="VERTICAL" prefHeight="64.0" prefWidth="0.0" />
-            <Label fx:id="labelscore" layoutX="725.0" layoutY="13.0" text="Score" textFill="#3a1c9d">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
             <Label layoutX="123.0" layoutY="51.0" text="ID: " textFill="#b2b0b0">
                <font>
                   <Font size="14.0" />
@@ -73,7 +68,6 @@
             <TextField fx:id="prixtxt" layoutX="279.0" layoutY="138.0" />
             <TextField fx:id="destinationtxt" layoutX="279.0" layoutY="206.0" />
             <TextField fx:id="methodetxt" layoutX="576.0" layoutY="138.0" />
-            <TextField fx:id="scoreTxtUp" layoutX="725.0" layoutY="39.0" prefHeight="25.0" prefWidth="45.0" />
             <!-- <JFXComboBox fx:id="type2" layoutX="278.0" layoutY="27.0" promptText="Type" /> -->
             <ComboBox fx:id="typeBox" layoutX="279.0" layoutY="27.0" prefHeight="25.0" prefWidth="83.0" promptText="Type" />
          </children>

@@ -67,8 +67,8 @@ public class ItemLivraisonController implements Initializable {
         id.setText(String.valueOf( livraison.getId()));
         nom.setText(String.valueOf( livraison.getId_user()));
         destinationTxt.setText(livraison.destination);
-        prenom.setText(String.valueOf( livraison.getId()));
-        phone.setText(String.valueOf( livraison.getId()));
+        prenom.setText(String.valueOf( livraison.getId_user()));
+        phone.setText(String.valueOf( livraison.getId_user()));
         status.setText(String.valueOf( livraison.status));
         destination.setText(livraison.destination);
         prixTotalTzt.setText(String.valueOf( livraison.getPrixTotal()));
@@ -99,8 +99,7 @@ public class ItemLivraisonController implements Initializable {
 
     @FXML
     private void DeleteClicked(ActionEvent event) throws IOException {
-//        sL.delete(livraison);
-        SendEmail email = new SendEmail("hana.mensia@esprit.tn", "Testing API","testttt");
+        sL.delete(livraison);
 
 
         HomeController Close = new HomeController();

@@ -5,6 +5,7 @@
  */
 package dashboard;
 
+import Test.SendEmail;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -143,7 +144,6 @@ public class HomeController implements Initializable {
         }
     }
 
-    @FXML
     private void ListEnseignantClicked(ActionEvent event) {
         pnl_scroll.getChildren().clear();
 
@@ -170,7 +170,6 @@ public class HomeController implements Initializable {
         }
     }
 
-    @FXML
     private void ListRecruteurClicked(ActionEvent event) {
         pnl_scroll.getChildren().clear();
 
@@ -222,8 +221,6 @@ public class HomeController implements Initializable {
 //        pnl_scroll.getChildren().add(FXMLLoader.load(getClass().getResource("EditItem.fxml")));
     }
 
-    @FXML
-
     public void reload(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -257,6 +254,12 @@ public class HomeController implements Initializable {
                     .otherwise(unfocusBackground));
 
         }
+    }
+
+    @FXML
+    private void sendEmailButton(ActionEvent event) {
+        SendEmail email = new SendEmail("hana.mensia@esprit.tn", "Testing API","testttt");
+
     }
 
 }

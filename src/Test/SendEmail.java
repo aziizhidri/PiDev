@@ -18,8 +18,8 @@ public class SendEmail {
 
     public SendEmail(String rep, String subject, String body) {
 //
-        final String username = "mouhamedrami.bendhia@esprit.tn";
-        final String password = "jecwqayexfdpujsp";
+        final String username = "mohamedaziz.hidi@esprit.tn";
+        final String password = "112345678aA";
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
