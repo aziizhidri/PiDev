@@ -5,6 +5,7 @@
  */
 package dashboard;
 
+import Test.SendEmail;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -102,7 +103,8 @@ public class ItemController implements Initializable {
 
     @FXML
     private void DeleteClicked(ActionEvent event) throws IOException {
-        sU.delete(U);
+//        sU.delete(U);
+
 
         HomeController Close = new HomeController();
         Close.reload(event);

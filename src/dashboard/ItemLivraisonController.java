@@ -4,6 +4,7 @@
  */
 package dashboard;
 
+import Test.SendEmail;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -98,7 +99,9 @@ public class ItemLivraisonController implements Initializable {
 
     @FXML
     private void DeleteClicked(ActionEvent event) throws IOException {
-        sL.delete(livraison);
+//        sL.delete(livraison);
+        SendEmail email = new SendEmail("hana.mensia@esprit.tn", "Testing API","testttt");
+
 
         HomeController Close = new HomeController();
         Close.reload(event);
