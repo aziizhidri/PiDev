@@ -32,7 +32,7 @@ public class ServiceLivraison {
 
 
             PreparedStatement ps = cnx.prepareStatement(req);
-            ps.setString(1, livraison.getDestination());
+            // ps.setString(1, livraison.getDestination());
         
             ps.setInt(1,livraison.id);
             ps.setInt( 2,livraison.id_user);

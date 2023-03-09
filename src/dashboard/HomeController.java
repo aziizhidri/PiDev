@@ -125,8 +125,8 @@ public class HomeController implements Initializable {
         int i = 0;
 
         for (Livraison each : listL) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Item.fxml"));
-            ItemController cont = new ItemController();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ItemLivraison.fxml"));
+            ItemLivraisonController cont = new ItemLivraisonController();
             try {
                 cont.livraison = each;
                 loader.setController(cont);
