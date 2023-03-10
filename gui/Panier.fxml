@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PanierController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom right,#2f466b,#662d60);">
+         <children>
+            <Label layoutX="45.0" layoutY="63.0" prefHeight="45.0" prefWidth="95.0" text="ID" textFill="WHITE" />
+            <Label layoutX="45.0" layoutY="127.0" prefHeight="21.0" prefWidth="95.0" text="ID PRODUIT" textFill="WHITE" />
+            <Label layoutX="45.0" layoutY="179.0" prefHeight="21.0" prefWidth="110.0" text="ID COMMANDE" textFill="WHITE" />
+            <TextField fx:id="tfid" layoutX="155.0" layoutY="70.0" />
+            <TextField fx:id="tfcommande" layoutX="155.0" layoutY="174.0" />
+            <Button fx:id="ajouter" layoutX="431.0" layoutY="70.0" mnemonicParsing="false" onAction="#ajouterpanier" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: linear-gradient(to bottom left,#ae44a5,#517ab5);" text="AJOUTER" textFill="WHITE" />
+            <Button fx:id="modifier" layoutX="431.0" layoutY="137.0" mnemonicParsing="false" onAction="#modifierpanier" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: linear-gradient(to bottom left,#ae44a5,#517ab5);" text="MODIFIER" textFill="WHITE" />
+            <Button fx:id="afficher" layoutX="431.0" layoutY="276.0" mnemonicParsing="false" onAction="#afficherpanier" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: linear-gradient(to bottom left,#ae44a5,#517ab5);" text="AFFICHER LISTE" textFill="WHITE" />
+            <Button fx:id="exit" layoutX="191.0" layoutY="333.0" mnemonicParsing="false" onAction="#exit" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: transparent;" text="EXIT" textFill="WHITE" />
+            <TextField fx:id="tfproduit" layoutX="156.0" layoutY="122.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

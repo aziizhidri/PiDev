@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="445.0" prefWidth="718.0" style="-fx-background-color: linear-gradient(to bottom right,#2f466b,#662d60);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherPanierController">
+   <children>
+      <TableView fx:id="table1" layoutX="70.0" layoutY="50.0" prefHeight="308.0" prefWidth="373.0">
+         <columns>
+            <TableColumn fx:id="idtable" prefWidth="94.0" text="id" />
+            <TableColumn fx:id="produittable" prefWidth="139.0" text="id_produit" />
+            <TableColumn fx:id="commandetable" prefWidth="139.0" text="id_commande" />
+         </columns>
+      </TableView>
+      <Button fx:id="supprimer" layoutX="512.0" layoutY="17.0" mnemonicParsing="false" onAction="#supprimerpanier" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom left,#ae44a5,#517ab5);" text="Supprimer" textFill="WHITE" />
+      <Button fx:id="exit" layoutX="530.0" layoutY="349.0" mnemonicParsing="false" onAction="#exit" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: transparent;" text="Exit" textFill="WHITE" />
+      <ImageView fx:id="imgqr" fitHeight="150.0" fitWidth="200.0" layoutX="493.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="gen" layoutX="512.0" layoutY="96.0" mnemonicParsing="false" onAction="#generateQr" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom left,#ae44a5,#517ab5);" text="Generer QR" textFill="WHITE" />
+   </children>
+</AnchorPane>
