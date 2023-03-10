@@ -84,16 +84,14 @@ public class ItemController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 //        Username.setText("ahmeddd");
-//        nom.setText(U.getNom());
+        nom.setText(U.getNom());
 
-//        nom.setText(U.getNom());
-        nom.setText(String.valueOf(livraison.getId()));
-//
-//        prenom.setText(U.getPrenom());
-//        phone.setText(String.valueOf(U.getPhone()));
-////        role.setText(U.getRole().toString());
-//        mail.setText(U.getEmail());
-//        cartbanq.setText(U.getCarte_banq());
+
+        prenom.setText(U.getPrenom());
+        phone.setText(String.valueOf(U.getPhone()));
+//        role.setText(U.getRole().toString());
+        mail.setText(U.getEmail());
+        cartbanq.setText(U.getCarte_banq());
 
     }
 
@@ -114,30 +112,22 @@ public class ItemController implements Initializable {
     @FXML
     private void UpdateClicked(ActionEvent event) throws IOException {
 
-//        ItemController cont = new ItemController();
-//        cont.U = this.U;
-//        HomeController home = new HomeController();
-//        home.updateUser(this.U);
-        EditItemController cont = new EditItemController();
-        cont.type = 2;
-        cont.u = this.U;
+          EditItemLivraisonController cont = new EditItemLivraisonController();
+        
+          Livraison l = new Livraison();
+          l.id_user = U.getId();
+        cont.livraison= l;
+//        cont.update = true;
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("EditItem.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EditItemLivraison.fxml"));
         loader.setController(cont);
 //        mainAnchor = loader.load();
 
         Stage stage = new Stage();
-        stage.setTitle("My New Stage Title");
+        stage.setTitle(" Update Window");
         stage.setScene(new Scene(loader.load()));
         stage.show();
         HomeController Close = new HomeController();
-//        Close.reload(event);
-//        Parent root = FXMLLoader.load(getClass().getResource("EditItem.fxml"));
-//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        Scene scene = new Scene(root);
-//
-//        stage.setScene(scene);
-//        stage.show();
     }
 
 }
