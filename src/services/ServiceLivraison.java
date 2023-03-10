@@ -79,7 +79,10 @@ public class ServiceLivraison {
 
     public boolean update(Livraison livraison) {
         System.out.println(livraison);
-        String req = "update livraison set `date` = ? ,`id_user` = ? , `prix_total` = ? , `status` = ? , `destination` = ? , `methodePaiment` = ? , where `id` = "+ livraison.id;
+        
+        String req = "update livraison set `date` = ? ,`id_user` = ? , `prix_total` = ? , `status` = ? , `destination` = ? , `methodePaiment` = ? where `id` = "+ livraison.id;
+
+//        String req = "update livraison set `date` = ? ,`id_user` = ? , `prix_total` = ? , `status` = ? , `destination` = ? , `methodePaiment` = ? , where `id` = "+ livraison.id;
         try {
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, livraison.date);

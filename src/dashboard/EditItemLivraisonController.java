@@ -55,6 +55,10 @@ public class EditItemLivraisonController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+//        if (livraison.id_user!=null)
+                        id_userTxt.setText(String.valueOf(livraison.id_user));
+
+        
         if(update){
             id_userTxt.setText(String.valueOf(livraison.id_user));
             statusttxttx.setText(String.valueOf( livraison.status));

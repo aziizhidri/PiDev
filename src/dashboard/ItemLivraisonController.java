@@ -18,7 +18,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import modeles.Livraison;
+import modeles.User;
 import services.ServiceLivraison;
+import services.ServiceUser;
 
 /**
  * FXML Controller class
@@ -57,18 +59,23 @@ public class ItemLivraisonController implements Initializable {
     public Livraison livraison;
     
     public ServiceLivraison sL = new ServiceLivraison();
+    
+    public ServiceUser sU = new ServiceUser();
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        User u = sU.getById(livraison.getId_user());
+        
+        
         // TODO
         id.setText(String.valueOf( livraison.getId()));
-        nom.setText(String.valueOf( livraison.getId_user()));
+        nom.setText( u.getNom());
         destinationTxt.setText(livraison.destination);
-        prenom.setText(String.valueOf( livraison.getId_user()));
-        phone.setText(String.valueOf( livraison.getId_user()));
+        prenom.setText(u.getPrenom());
+        phone.setText(String.valueOf(u.getPhone()));
         status.setText(String.valueOf( livraison.status));
         destination.setText(livraison.destination);
         prixTotalTzt.setText(String.valueOf( livraison.getPrixTotal()));

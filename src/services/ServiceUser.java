@@ -87,7 +87,7 @@ public class ServiceUser implements IService<User> {
     public User getById(int id) {
         User u = new User();
         try {
-            String req = "SELECT * FROM `user` where id = " + id;
+            String req = "SELECT * FROM `user` where `id` = " + id;
             // Statement st = cnx.createStatement();
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
