@@ -35,16 +35,11 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import modeles.Enseignant;
-import modeles.Etudiant;
 import modeles.Livraison;
-import modeles.Recruteur;
 //import static modeles.Role.Recruteur;
 import modeles.User;
-import services.ServiceEns;
-import services.ServiceEtudiant;
 import services.ServiceLivraison;
-import services.ServiceRecruteur;
+
 import services.ServiceUser;
 
 /**
@@ -54,9 +49,6 @@ import services.ServiceUser;
 public class HomeController implements Initializable {
 
     ServiceUser sU = new ServiceUser();
-    ServiceEtudiant sE = new ServiceEtudiant();
-    ServiceEns sEn = new ServiceEns();
-    ServiceRecruteur sR = new ServiceRecruteur();
     ServiceLivraison sL = new ServiceLivraison();
 
     @FXML
@@ -144,58 +136,6 @@ public class HomeController implements Initializable {
         }
     }
 
-    private void ListEnseignantClicked(ActionEvent event) {
-        pnl_scroll.getChildren().clear();
-
-        List<Enseignant> listU = sEn.getAll();
-        Node[] nodes = new Node[listU.size()];
-        int i = 0;
-
-        for (Enseignant each : listU) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Item.fxml"));
-            ItemController cont = new ItemController();
-            try {
-                cont.U = each;
-                loader.setController(cont);
-
-                nodes[i] = (Node) loader.load();
-
-                // nodes[i] = (Node)FXMLLoader.load(getClass().getResource("Item.fxml"));
-                pnl_scroll.getChildren().add(nodes[i]);
-
-            } catch (IOException ex) {
-                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            i++;
-        }
-    }
-
-    private void ListRecruteurClicked(ActionEvent event) {
-        pnl_scroll.getChildren().clear();
-
-        List<Recruteur> listU = sR.getAll();
-        System.out.println(listU);
-        Node[] nodes = new Node[listU.size()];
-        int i = 0;
-
-        for (Recruteur each : listU) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Item.fxml"));
-            ItemController cont = new ItemController();
-            try {
-                cont.U = each;
-                loader.setController(cont);
-
-                nodes[i] = (Node) loader.load();
-
-                // nodes[i] = (Node)FXMLLoader.load(getClass().getResource("Item.fxml"));
-                pnl_scroll.getChildren().add(nodes[i]);
-
-            } catch (IOException ex) {
-                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            i++;
-        }
-    }
 
     @FXML
     public void AddClicked(ActionEvent event) throws IOException {

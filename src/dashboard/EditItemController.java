@@ -25,14 +25,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import static javafx.scene.input.KeyCode.U;
 import javafx.stage.Stage;
-import modeles.Enseignant;
-import modeles.Etudiant;
-import modeles.Recruteur;
 import modeles.Role;
 import modeles.User;
-import services.ServiceEns;
-import services.ServiceEtudiant;
-import services.ServiceRecruteur;
 import services.ServiceUser;
 
 /**
@@ -71,9 +65,6 @@ public class EditItemController implements Initializable {
     @FXML
     // private ImageView img;
     ServiceUser sU = new ServiceUser();
-    ServiceEtudiant sE = new ServiceEtudiant();
-    ServiceEns sEn = new ServiceEns();
-    ServiceRecruteur sR = new ServiceRecruteur();
     @FXML
     private TextField psw;
     ObservableList types = FXCollections.observableArrayList(

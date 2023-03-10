@@ -22,12 +22,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import modeles.Enseignant;
-import modeles.Etudiant;
 import modeles.Livraison;
-import modeles.Recruteur;
 import modeles.Role;
-import static modeles.Role.Recruteur;
 import modeles.User;
 import services.ServiceUser;
 
@@ -95,13 +91,10 @@ public class ItemController implements Initializable {
 
     }
 
-    void initData(String u) {
-        Username.setText(u);
-    }
 
     @FXML
     private void DeleteClicked(ActionEvent event) throws IOException {
-//        sU.delete(U);
+        sU.delete(U);
 
 
         HomeController Close = new HomeController();
